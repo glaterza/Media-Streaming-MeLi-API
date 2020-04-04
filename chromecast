@@ -5,26 +5,25 @@ import json
 url = "https://api.mercadolibre.com/sites/MLA/categories"
 
 response = requests.get(url)
-print (response.status_code) # quiero ver si anduvo bien
 
 data = json.loads(response.text)
-data
+
 url = "https://api.mercadolibre.com/categories/MLA1000"
 response = requests.get(url)
 data = json.loads(response.text) # lo hago diccionario
-data
+
 
 url = "https://api.mercadolibre.com/categories/MLA352001"
 response = requests.get(url)
 data = json.loads(response.text)
-data
+
 
 url = "https://api.mercadolibre.com/sites/MLA/search?category=MLA352001"
 response = requests.get(url)
 data = json.loads(response.text) 
-data
+
 
 
 results = data['results']
-results
+
 f = pd.DataFrame(results, columns =['id','title','seller','price','currency_id','available_quantity','listing_type_id','condition','accepts_mercadopago','state_name','city_name','catalog_product_id'])
